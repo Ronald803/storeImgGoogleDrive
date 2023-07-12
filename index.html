@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML5 form to upload files to google drive</title>
+</head>
+<body>
+    <form>
+        <input type="file" multiple name="files" required/>
+        <input type="text" name="Name" placeholder="Enter Name" />
+        <input type="email" name="Email" placeholder="Enter Email"/>
+        <input type="text" name="country" placeholder="Enter Country" />
+    </form>
+</body>
+<script>
+    let  formElem = document.querySelector('form')
+    formElem.addEventListener('submit',async (e)=>{
+        e.preventDefault()
+        await fetch('/upload',{
+            method: 'POST',
+            body: new FormData(formElem)
+        })
+    })
+</script>
+</html>
