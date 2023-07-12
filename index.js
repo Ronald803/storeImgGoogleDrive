@@ -1,11 +1,11 @@
 const express = require('express');
-//const uploadrouter = require('./router')
+const uploadrouter = require('./router')
 
 const app = express();
 
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
-//app.use(uploadrouter)
+app.use(uploadrouter)
 
 app.get('/',(req,res)=>{
     res.sendFile(__dirname + "/index.html")

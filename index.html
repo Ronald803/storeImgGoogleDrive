@@ -8,15 +8,17 @@
 </head>
 <body>
     <form>
-        <input type="file" multiple name="files" required/>
+        <input type="file" multiple name="Files" required/>
         <input type="text" name="Name" placeholder="Enter Name" />
         <input type="email" name="Email" placeholder="Enter Email"/>
-        <input type="text" name="country" placeholder="Enter Country" />
+        <input type="text" name="Country" placeholder="Enter Country" />
+        <button type="submit">Submit</button>
     </form>
 </body>
 <script>
-    let  formElem = document.querySelector('form')
+    const  formElem = document.querySelector('form')
     formElem.addEventListener('submit',async (e)=>{
+        console.log("Form submitted")
         e.preventDefault()
         await fetch('/upload',{
             method: 'POST',
